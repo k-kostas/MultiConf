@@ -21,7 +21,7 @@ exclude_patterns = []
 html_theme = "pydata_sphinx_theme"
 # html_static_path = ['_static']
 
-sys.path.insert(0, os.path.abspath('../../src/structural_penalties_icp'))
+sys.path.insert(0, os.path.abspath('../../src'))
 
 autodoc_member_order = 'bysource'
 
