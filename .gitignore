@@ -1,0 +1,51 @@
+# ==========================================
+# Python & Environment
+# ==========================================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments
+venv/
+env/
+.env/
+.venv/
+Pipfile.lock
+
+# ==========================================
+# Packaging & Distribution (Crucial for you)
+# ==========================================
+# These folders are auto-generated when you build your package.
+# They should NEVER go on GitHub.
+build/
+dist/
+*.egg-info/
+*.egg
+
+# ==========================================
+# Sphinx Documentation
+# ==========================================
+# We only want to upload the 'source' files, not the generated HTML!
+docs/build/
+docs/_build/
+
+# ==========================================
+# IDEs & OS Files
+# ==========================================
+# PyCharm specific files
+.idea/
+
+# VS Code specific files
+.vscode/
+
+# macOS specific files
+.DS_Store
+
+# ==========================================
+# Testing & Jupyter (For future-proofing)
+# ==========================================
+.pytest_cache/
+.coverage
+htmlcov/
+.ipynb_checkpoints/
