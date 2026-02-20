@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "structural-penalties-icp"
 version = "0.1.0"
 authors = [
-  { name="Kostas Katsios", email="your.email@example.com" },
+  { name="Kostas Katsios", email="kos.katsios@gmail.com" },
 ]
 description = "Inductive Conformal Prediction with dynamic structural penalties for multi-label classification."
 readme = "README.md"
@@ -15,7 +15,9 @@ dependencies = [
     "numpy>=1.20.0",
     "scikit-learn>=1.0.0",
     "torch>=2.0.0",
+    "pandas>=2.0.0"
 ]
+
 classifiers = [
     "Programming Language :: Python :: 3",
     "License :: OSI Approved :: BSD License",

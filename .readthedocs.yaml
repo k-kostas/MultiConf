@@ -1,21 +1,14 @@
-# .readthedocs.yaml
-# Read the Docs configuration file
-# See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
-
 version: 2
 
-# Set the OS and Python version for the build environment
 build:
   os: ubuntu-22.04
   tools:
     python: "3.11"
 
-# Tell RTD where your Sphinx configuration file lives
 sphinx:
   builder: html
   configuration: docs/source/conf.py
 
-# Tell RTD to install your package and its documentation dependencies
 python:
   install:
     - method: pip

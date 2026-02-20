@@ -32,7 +32,7 @@ retraining. This package bridges **Scikit-Learn** (for the underlying classifier
 
 
 [![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
-[![License: BSD 3-Clause](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: BSD 3-Clause](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/bsd-3-clause)
 
 ## Installation
 
@@ -41,7 +41,7 @@ pip install structural-penalties-icp
 ```
 
 ## Documentation
-For the complete documentation see [structural-penalties-icp.readthedocs.io](https://structural-penalties-icp.readthedocs.io/en/latest/)
+For the complete documentation see [structuralpenaltiesicp.readthedocs.io](https://structuralpenaltiesicp.readthedocs.io/en/latest/)
 
 
 ## Quickstart
@@ -114,9 +114,9 @@ nonconformity scores, which are essential for calculating the p-values required 
 wrapper.calibrate(X_calib, y_calib)
 ```
 
-**Note on Underlying Scikit-Learn Strategies Switching**: You can switch the classification strategy or update
-its parameters dynamically. If the wrapper detects a change (via fingerprinting) during calibration,
-it will automatically retrain the new model on the cached proper training data.
+~~~{Note}
+**Switching Underlying Scikit-Learn Strategies** :
+ You can switch the classification strategy or update its parameters dynamically. If the wrapper detects a change (via fingerprinting) during calibration, it will automatically retrain the new model on the cached proper training data.
 
 ```python
 from sklearn.neighbors import KNeighborsClassifier
@@ -129,6 +129,7 @@ wrapper.kwargs = {'estimator__n_neighbors': 5}
 # Trigger automatic retraining and calibration
 wrapper.calibrate(X_calib, y_calib)
 ```
+~~~
 
 Finally, we generate prediction regions for the test set using the predict method.
 
@@ -164,18 +165,21 @@ Equivalent one-liner:
 prediction_sets = wrapper.predict(X_test)(significance_level=0.1)
 ```
 
-> [!NOTE]
-> **Dynamic Penalties Weights Update**: We update the penalty weights dynamically without retraining the model.
-> 
-> ```python
-> wrapper.icp.weight_hamming = 1.5
-> wrapper.icp.weight_cardinality = 0.5
-> 
-> # Predict with new penalties
-> updated_prediction_sets = wrapper.predict(X_test)(significance_level=0.1)
-> ```
+~~~{Note}
+**Dynamic Penalties Weights Update**: We update the penalty weights dynamically without retraining the model.
 
-**Note on Accessing P-Values**: You also have direct access to the raw p-values for every possible label combination.
+```python
+wrapper.icp.weight_hamming = 1.5
+wrapper.icp.weight_cardinality = 0.5
+
+# Predict with new penalties
+updated_prediction_sets = wrapper.predict(X_test)(significance_level=0.1)
+```
+~~~
+
+
+~~~{Note}
+**Accessing P-Values**: You also have direct access to the raw p-values for every possible label combination.
 Below, we print the p-values for the first test sample.
 
 ```python
@@ -185,6 +189,7 @@ print(prediction_regions_obj.p_values[0])
 ```text
 tensor([0.0627, 0.0015, 0.0719,  ..., 0.0015, 0.0015, 0.0015])
 ```
+~~~
 
 The `evaluate` method provides a convenient way to calculate performance metrics, including Coverage, 
 N-Criterion, S-Criterion, and statistical validity via the KS-test. Additionally, it can return the p-values
@@ -319,18 +324,22 @@ print(metrics)
  }
 ```
 
-**Note**: We update the penalty weights dynamically during prediction.
+~~~{Note}
+**Dynamic Penalties Weights Update**: We update the penalty weights dynamically without retraining the model.
 
 ```python
-icp.weight_hamming = 2.0
-icp.weight_cardinality = 1.5
-updated_prediction_regions_obj = icp.predict(test_probs)
+wrapper.icp.weight_hamming = 1.5
+wrapper.icp.weight_cardinality = 0.5
+
+# Predict with new penalties
+updated_prediction_sets = wrapper.predict(X_test)(significance_level=0.1)
 ```
+~~~
 
 
 ## Examples
 
-For additional examples of how to use the package, see the documentation.
+For additional examples of how to use the package, see the [documentation](https://structuralpenaltiesicp.readthedocs.io/en/latest/documentation.html#).
 
 
 ## Citing Structural Penalties ICP
