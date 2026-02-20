@@ -1,6 +1,7 @@
 sphinx>=7.0.0
 pydata-sphinx-theme
 myst-parser
+sphinx-copybutton
 scikit-learn
 torch
 numpy
