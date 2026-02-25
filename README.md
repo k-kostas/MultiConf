@@ -11,7 +11,7 @@ Table of Contents
 # Structural Penalties ICP
 
 A flexible Python package for **Conformal Prediction (CP)** in multi-label classification tasks.
-It implements the **Powerset Scoring** approach [[3]](#papadopoulos2014) and utilizes the **Mahalanobis 
+It implements the **Powerset Scoring** approach [[3]](#papadopoulos2014) using the **Mahalanobis 
 nonconformity measure** [[1]](#katsios2024), and applies **Structural Penalties** —based on 
 Hamming distance and label-set cardinality— to respect the label correlations of the proper training data, 
 producing valid and informative prediction sets [[2]](#katsios2025). Designed for efficiency, it handles 
