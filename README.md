@@ -12,7 +12,7 @@ Table of Contents
 
 A flexible Python package for **Conformal Prediction (CP)** in multi-label classification tasks.
 It implements the **Powerset Scoring** approach [[3]](#papadopoulos2014) and utilizes the **Mahalanobis 
-nonconformity measure** [[1]](#katsios2024). The package implements **Structural Penalties** —based on 
+nonconformity measure** [[1]](#katsios2024), and applies **Structural Penalties** —based on 
 Hamming distance and label-set cardinality— to respect the label correlations of the proper training data, 
 producing valid and informative prediction sets [[2]](#katsios2025). Designed for efficiency, it handles 
 model training, calibration, and the dynamic update of structural penalty weights without the need for 
@@ -28,7 +28,7 @@ retraining. This package bridges **Scikit-Learn** (for the underlying classifier
 * **Dynamic Updates**: Update penalty weights on the fly **without retraining** the model or recalculating the covariance matrix.
 * **Smart Strategy Switching**: Switch the underlying classifier (e.g., from Random Forest to KNN) dynamically; the wrapper handles retraining automatically.
 * **Scikit-Learn Compatible**: Wraps any sklearn multi-label classifier (e.g., `MultiOutputClassifier`, `ClassifierChain`).
-* **GPU Support**: Seamlessly offloads heavy matrix computations to CUDA devices.
+* **GPU Support**: Offloads heavy matrix computations to CUDA devices.
 
 
 [![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/)
@@ -51,7 +51,7 @@ to produce prediction sets for a new test sample in different significance level
 We will load the data,
 split it into proper training, calibration and test sets, train the model and evaluate the conformal predictions.
 For example, we will use the **Yeast** dataset after we have preprocessed the data into features and labels
-in CSV format. The labels are represented as multi-hot vectors.
+in CSV format. The labels are represented as **multi-hot vectors**.
 
 ```python
 import pandas as pd
@@ -192,7 +192,7 @@ The `evaluate` method provides a convenient way to calculate performance metrics
 N-Criterion, S-Criterion, and statistical validity via the KS-test. Additionally, it can return the p-values
 corresponding to the true labels.
 
-The method requires the **ground truth labels** ('true_labelsets') and the desired **significance level**.
+The method requires the **ground truth labels** (`true_labelsets`) and the desired **significance level**.
 All other metric-specific arguments are optional boolean flags, which default to `True` if not specified.
 
 ```python
@@ -225,7 +225,7 @@ print(metrics)
 
 ## Alternative usage
 You can also use the InductiveConformalPredictor class as a standalone engine if you prefer to manage the underlying
-classifier yourself or are not using Scikit-Learn. In this mode, you must provide the **predicted probabilities** for the
+classifier yourself or not using Scikit-Learn. In this mode, you must provide the **predicted probabilities** for the
 proper training, calibration, and test sets, as well as the **ground truth labels** for the training and calibration sets.
 
 The package is flexible regarding input formats: it accepts PyTorch Tensors, NumPy arrays, Pandas DataFrames/Series,
