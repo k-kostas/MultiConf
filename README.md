@@ -41,7 +41,7 @@ pip install multiconf
 ```
 
 ## Documentation
-For the complete documentation see [structuralpenaltiesicp.readthedocs.io](https://structuralpenaltiesicp.readthedocs.io/en/latest/)
+For the complete documentation see [multi-conf.readthedocs.io](https://multi-conf.readthedocs.io/en/latest/)
 
 
 ## Quickstart
@@ -335,7 +335,7 @@ print(metrics)
 
 ## Examples
 
-For additional examples of how to use the package, see the [documentation](https://structuralpenaltiesicp.readthedocs.io/en/latest/documentation.html#).
+For additional examples of how to use the package, see the [documentation](https://multi-conf.readthedocs.io/en/latest/documentation.html).
 
 
 ## Citing MultiConf
