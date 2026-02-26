@@ -37,7 +37,7 @@ class PredictionRegions:
     Examples
     --------
     >>> import torch
-    >>> from structural_penalties_icp.prediction_regions import PredictionRegions
+    >>> from multiconf.prediction_regions import PredictionRegions
     >>>
     >>> # 1. Generate dummy data (100 samples, 5 classes -> 32 combinations)
     >>> combinations = torch.cartesian_prod(*[torch.tensor([0, 1])] * 5)

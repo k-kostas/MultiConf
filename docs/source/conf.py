@@ -1,7 +1,7 @@
 import os
 import sys
 
-project = 'Structural Penalties ICP'
+project = 'MultiConf'
 copyright = '2026, Kostas Katsios'
 author = 'Kostas Katsios'
 release = '0.1.0'
@@ -28,7 +28,7 @@ autodoc_member_order = 'bysource'
 copybutton_prompt_text = r">>> ?|\.\.\. ?"
 copybutton_prompt_is_regexp = True
 
-html_title = 'Structural Penalties ICP v. 0.1.0'
+html_title = 'MultiConf v. 0.1.0'
 
 html_sidebars = {
     "**": []

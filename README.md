@@ -8,9 +8,9 @@ Table of Contents
 - [Citing Structural Penalties ICP](#citing-structural-penalties-icp)
 - [References](#references)
 
-# Structural Penalties ICP
+# MultiConf (Multi-Label Conformal Prediction)
 
-A flexible Python package for **Conformal Prediction (CP)** in multi-label classification tasks.
+A flexible Python package for **Conformal Prediction (CP)** in **Multi-label** classification tasks.
 It implements the **Powerset Scoring** approach [[3]](#papadopoulos2014) using the **Mahalanobis 
 nonconformity measure** [[1]](#katsios2024), and applies **Structural Penalties** —based on 
 Hamming distance and label-set cardinality— to respect the label correlations of the proper training data, 
@@ -37,7 +37,7 @@ retraining. This package bridges **Scikit-Learn** (for the underlying classifier
 ## Installation
 
 ```bash
-pip install structural-penalties-icp
+pip install multiconf
 ```
 
 ## Documentation
@@ -45,7 +45,7 @@ For the complete documentation see [structuralpenaltiesicp.readthedocs.io](https
 
 
 ## Quickstart
-This guide demonstrates the core usage of the Structural Penalties ICP package for a multi-label classification task 
+This guide demonstrates the core usage of the MultiConf package for a multi-label classification task 
 to produce prediction sets for a new test sample in different significance levels. 
 
 We will load the data,
@@ -338,7 +338,7 @@ print(metrics)
 For additional examples of how to use the package, see the [documentation](https://structuralpenaltiesicp.readthedocs.io/en/latest/documentation.html#).
 
 
-## Citing Structural Penalties ICP
+## Citing MultiConf
 
 If you use the package for a scientific publication, you are kindly requested to cite the following paper:
 
