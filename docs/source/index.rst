@@ -1,9 +1,9 @@
-Structural Penalties ICP Package
+MultiConf Package
 ================================
 
-A flexible Python package for **Conformal Prediction (CP)** in multi-label classification tasks.
-It implements the **Powerset Scoring** approach [3]_ and utilizes the **Mahalanobis
-nonconformity measure** [1]_. The package implements **Structural Penalties** —based on
+A flexible Python package for **Conformal Prediction (CP)** in **Multi-Label** classification tasks.
+It implements the **Powerset Scoring** approach [3]_ using the **Mahalanobis
+nonconformity measure** [1]_, and applies **Structural Penalties** —based on
 Hamming distance and label-set cardinality— to respect the label correlations of the proper training data,
 producing valid and informative prediction sets [2]_. Designed for efficiency, it handles
 model training, calibration, and the dynamic update of structural penalty weights without the need for
@@ -17,9 +17,9 @@ Key Features
 * **Mahalanobis Nonconformity Measure**: Utilizes the Mahalanobis distance in the error vectors space to account for label correlations
 * **Structural Penalties**: Incorporates label correlations via Hamming and Cardinality penalties to produce more informative prediction sets.
 * **Dynamic Updates**: Update penalty weights on the fly **without retraining** the model or recalculating the covariance matrix.
-* **Smart Strategy Switching**: Switch the underlying classifier (e.g., from Random Forest to KNN) dynamically; the wrapper handles retraining automatically.
-* **Scikit-Learn Compatible**: Wraps any sklearn multi-label classifier (e.g., `MultiOutputClassifier`, `ClassifierChain`).
-* **GPU Support**: Seamlessly offloads heavy matrix computations to CUDA devices.
+* **Smart Strategy Switching**: Switch the underlying classifier (e.g., from :class:`~sklearn.ensemble.RandomForestClassifier` to :class:`~sklearn.neighbors.KNeighborsClassifier`) dynamically; the wrapper handles retraining automatically.
+* **Scikit-Learn Compatible**: Wraps any sklearn multi-label classifier (e.g., :class:`~sklearn.multioutput.MultiOutputClassifier`, :class:`~sklearn.multioutput.ClassifierChain`).
+* **GPU Support**: Offloads heavy matrix computations to CUDA devices.
 
 References
 ----------
