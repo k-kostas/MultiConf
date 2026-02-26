@@ -26,8 +26,8 @@ retraining. This package bridges **Scikit-Learn** (for the underlying classifier
 * **Mahalanobis Nonconformity Measure**: Utilizes the Mahalanobis distance in the error vectors space to account for label correlations.
 * **Structural Penalties**: Incorporates label correlations via Hamming and Cardinality penalties to produce more informative prediction sets.
 * **Dynamic Updates**: Update penalty weights on the fly **without retraining** the model or recalculating the covariance matrix.
-* **Smart Strategy Switching**: Switch the underlying classifier (e.g., from Random Forest to KNN) dynamically; the wrapper handles retraining automatically.
-* **Scikit-Learn Compatible**: Wraps any sklearn multi-label classifier (e.g., `MultiOutputClassifier`, `ClassifierChain`).
+* **Smart Strategy Switching**: Switch the underlying classifier (e.g., from {class}`~sklearn.ensemble.RandomForestClassifier` to {class}`~sklearn.neighbors.KNeighborsClassifier`) dynamically; the wrapper handles retraining automatically.
+* **Scikit-Learn Compatible**: Wraps any sklearn multi-label classifier (e.g., {class}`~sklearn.multioutput.MultiOutputClassifier`, {class}`~sklearn.multioutput.ClassifierChain`).
 * **GPU Support**: Offloads heavy matrix computations to CUDA devices.
 
 
@@ -78,7 +78,7 @@ Data shapes: Train=(1522, 103), Calib=(653, 103), Test=(242, 103)
 ```
 
 We initialize the underlying classifier from Scikit-Learn before fitting it on the proper training data. We have
-chosen the Random Forest classifier here, wrapped by MultiOutputClassifier. Then, we initialize the ICPWrapper
+chosen the {class}`~sklearn.ensemble.RandomForestClassifier` here, wrapped by {class}`~sklearn.multioutput.MultiOutputClassifier`. Then, we initialize the ICPWrapper
 setting the model and the weights of the structural penalties (default values are 0.0). Notice that there are two ways
 to adjust the classifiers' arguments either by passing them directly
 
