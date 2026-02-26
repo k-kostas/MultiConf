@@ -10,8 +10,8 @@ extensions = [  'sphinx.ext.autodoc',
                 'sphinx.ext.napoleon',
                 'sphinx_copybutton',
                 'myst_parser',
-                'sphinx.ext.viewcode'
-
+                'sphinx.ext.viewcode',
+                'sphinx.ext.intersphinx'
 ]
 
 templates_path = ['_templates']
@@ -32,4 +32,12 @@ html_title = 'MultiConf v. 0.1.0'
 
 html_sidebars = {
     "**": []
+}
+
+intersphinx_mapping = {
+    'python': ('https://docs.python.org/3', None),
+    'sklearn': ('https://scikit-learn.org/stable/', None),
+    'numpy': ('https://numpy.org/doc/stable/', None),
+    'torch': ('https://pytorch.org/docs/stable/', None),
+    'pandas': ('https://pandas.pydata.org/docs/', None),
 }

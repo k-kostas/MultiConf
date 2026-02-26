@@ -3,11 +3,11 @@
 ## Installation
 
 ```bash
-pip install structural-penalties-icp
+pip install multiconf
 ```
 
 ## Tutorial
-The Structural Penalties ICP is a Python package implementing the novel Conformal Prediction framework introduced
+The MultiConf is a Python package implementing the novel Conformal Prediction framework introduced
 in "Incorporating Structural Penalties in Multi-label Conformal Prediction" (Katsios & Papadopoulos, 2025).
 Based on the 2025 research by Katsios & Papadopoulos, this package addresses the structural limitation by integrating
 Structural Penalties into the nonconformity measure. By penalizing predictions based on their label dependencies
@@ -62,7 +62,7 @@ Data shapes: Train=(1522, 103), Calib=(653, 103), Test=(242, 103)
 ```
 
 ### Setting up the Wrapper - Scikit-Learn API
-The ICPWrapper is a Scikit-Learn compatible interface that integrates Structural Penalties ICP with standard
+The ICPWrapper is a Scikit-Learn compatible interface that integrates MultiConf with standard
 Scikit-Learn classifiers. It bridges Scikit-Learn (for the underlying classifier) and PyTorch
 (for efficient tensor computations and GPU acceleration).
 
@@ -76,8 +76,8 @@ To initialize the wrapper, you must provide the base classifier and, optionally,
 
   ~~~{Note}
    **GPU Acceleration**:
-     The underlying Scikit-Learn classifier always runs on the CPU. The device parameter only affects
-              the Conformal Prediction and Structural Penalty calculations.
+     The underlying Scikit-Learn classifier always runs on the CPU. The device parameter only affects 
+     the Conformal Prediction and Structural Penalty calculations.
    ~~~
 
 
@@ -86,8 +86,10 @@ The fit method of the ICPWrapper accepts the features and the multi-hot vectors 
 training data. It trains the underlying classifier and calculates the covariance matrix and the structural penalties
 for the inductive conformal predictor.
 
-When using meta-estimators (e.g., MultiOutputClassifier, ClassifierChain, OneVsRestClassifier), you can configure
-the inner model's parameters in two ways:
+When using meta-estimators (e.g., [`MultiOutputClassifier`](https://scikit-learn.org/stable/modules/generated/sklearn.multioutput.MultiOutputClassifier.html),
+[`ClassifierChain`](https://scikit-learn.org/stable/modules/generated/sklearn.multioutput.ClassifierChain.html),
+[`OneVsRestClassifier`](https://scikit-learn.org/stable/modules/generated/sklearn.multioutput.OneVsRestClassifier.html)),
+you can configure the inner model's parameters in two ways:
 
 1. Direct Initialization
     Initialize the inner classifier with its parameters before passing it to the wrapper.
@@ -103,9 +105,8 @@ the inner model's parameters in two ways:
     wrapper.fit(X_train, y_train)
     ```
 
-2. Passing via fit (using estimator__)
-    You can pass parameters dynamically to the fit method using a dictionary. For meta-estimators, you must use the
-    estimator__ prefix (double underscore) to reach the inner model.  
+2. You can pass parameters dynamically to the fit method using a dictionary. For meta-estimators, you must use the
+    `estimator__` prefix (double underscore) to reach the inner model.  
   
     ```python
     from sklearn.ensemble import RandomForestClassifier
@@ -121,8 +122,9 @@ the inner model's parameters in two ways:
 
     ~~~{Note}
     **Native Estimators:** If you are using a standalone multi-label classifier
-      (e.g., RandomForestClassifier or KNeighborsClassifier directly), you do not use the estimator__ prefix.
-       You can pass arguments directly (e.g., n_estimators=10 or {'n_estimators': 10}).
+    (e.g., [`RandomForestClassifier`](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html)
+    or [`KNeighborsClassifier`](https://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html)
+    directly), you do not use the `estimator__` prefix. You can pass arguments directly (e.g., `n_estimators=10` or `{'n_estimators': 10}`).
     ~~~
 
 
