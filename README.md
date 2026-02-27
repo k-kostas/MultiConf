@@ -359,6 +359,8 @@ If you use the package for a scientific publication, you are kindly requested to
 }
 ```
 
+
+
 ## References
 
 1. <a id="katsios2025"></a>Katsios, K., & Papadopoulos, H. (2025). Incorporating Structural Penalties in Multi-label Conformal Prediction.
