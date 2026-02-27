@@ -45,5 +45,5 @@ intersphinx_mapping = {
 }
 
 myst_enable_extensions = [
-    "dollarmath",
+    "dollarmath"
 ]
