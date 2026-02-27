@@ -43,3 +43,7 @@ intersphinx_mapping = {
     'torch': ('https://pytorch.org/docs/stable/', None),
     'pandas': ('https://pandas.pydata.org/docs/', None),
 }
+
+myst_enable_extensions = [
+    "dollarmath",
+]
