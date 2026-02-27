@@ -98,7 +98,7 @@ you can configure the inner model's parameters in two ways:
     from sklearn.ensemble import RandomForestClassifier
     from sklearn.multioutput import MultiOutputClassifier
 
-    from structural_penalties_icp.icp_wrapper import ICPWrapper
+    from multiconf.icp_wrapper import ICPWrapper
     
     base_model = MultiOutputClassifier(RandomForestClassifier(n_estimators=10))
     wrapper = ICPWrapper(base_model, weight_hamming=2.0, weight_cardinality=1.5, device='cpu')
@@ -112,7 +112,7 @@ you can configure the inner model's parameters in two ways:
     from sklearn.ensemble import RandomForestClassifier
     from sklearn.multioutput import MultiOutputClassifier
     
-    from structural_penalties_icp.icp_wrapper import ICPWrapper
+    from multiconf.icp_wrapper import ICPWrapper
     
     base_model = MultiOutputClassifier(RandomForestClassifier())
     wrapper = ICPWrapper(base_model, weight_hamming=2.0, weight_cardinality=1.5, device='cpu')
@@ -265,7 +265,7 @@ First, we need to initialize the InductiveConformalPredictor class to calculate 
 the covariance matrix using the proper training data.
 
 ```python
-from structural_penalties_icp.icp_predictor import InductiveConformalPredictor
+from multiconf.icp_predictor import InductiveConformalPredictor
 
 icp = InductiveConformalPredictor(
     predicted_probabilities=train_probs,
@@ -288,7 +288,7 @@ icp.calibrate(probabilities=calib_probs,labels=calib_labels)
 We generate prediction regions for the test set using the predict method.
 
 ```python
-prediction_regions_obj = predict(X_test)
+prediction_regions_obj = icp.predict(test_probs)
 ```
 
 The predict method returns a PredictionRegions container holding the conformal prediction regions for each sample.
@@ -316,18 +316,18 @@ tensor([[0, 0, 0,  ..., 1, 1, 0],
 Equivalent one-liner:
 
 ```python
-prediction_sets = predict(X_test)(significance_level=0.1)
+prediction_sets = icp.predict(test_probs)(significance_level=0.1)
 ```
 
 ~~~{Note}
 **Dynamic Penalties Weights Update**: We update the penalty weights dynamically without retraining the model.
 
 ```python
-wrapper.icp.weight_hamming = 1.5
-wrapper.icp.weight_cardinality = 0.5
+icp.weight_hamming = 1.5
+icp.weight_cardinality = 0.5
 
 # Predict with new penalties
-updated_prediction_sets = wrapper.predict(X_test)(significance_level=0.1)
+updated_prediction_sets = icp.predict(test_probs)(significance_level=0.1)
 ```
 ~~~
 

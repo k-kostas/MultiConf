@@ -86,7 +86,7 @@ to adjust the classifiers' arguments either by passing them directly
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.multioutput import MultiOutputClassifier
 
-from structural_penalties_icp.icp_wrapper import ICPWrapper
+from multiconf.icp_wrapper import ICPWrapper
 
 base_model = MultiOutputClassifier(RandomForestClassifier(n_estimators=10))
 wrapper = ICPWrapper(base_model, weight_hamming=2.0, weight_cardinality=1.5, device='cpu')
@@ -236,7 +236,7 @@ First, we need to initialize the InductiveConformalPredictor class to calculate 
 the covariance matrix using the proper training data.
 
 ```python
-from structural_penalties_icp.icp_predictor import InductiveConformalPredictor
+from multiconf.icp_predictor import InductiveConformalPredictor
 
 icp = InductiveConformalPredictor(
     predicted_probabilities=train_probs,

@@ -17,9 +17,11 @@ extensions = [  'sphinx.ext.autodoc',
 templates_path = ['_templates']
 exclude_patterns = []
 
-# html_theme = 'sphinx_rtd_theme'
 html_theme = "pydata_sphinx_theme"
-# html_static_path = ['_static']
+
+html_theme_options = {
+    "github_url": "https://github.com/k-kostas/MultiConf",
+}
 
 sys.path.insert(0, os.path.abspath('../../src'))
 
