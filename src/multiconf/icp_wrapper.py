@@ -225,7 +225,7 @@ class ICPWrapper:
         This step calculates the nonconformity scores and determines the thresholds
         required to guarantee coverage. It also handles updates: if the
         underlying classifier configuration has changed since `fit` was called,
-        it automatically retrains the classifier and updates the ICP covariance matrix.
+        it automatically retrains the classifier and updates the covariance matrix.
 
 
         Parameters
