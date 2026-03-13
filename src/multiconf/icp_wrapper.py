@@ -171,7 +171,7 @@ class ICPWrapper:
         >>> # 3. Fit the Model (Standard)
         >>> wrapper.fit(X_train, y_train)
         >>>
-        >>> # 4. Fit with Dynamic Parameters (Advanced)
+        >>> # 4. Change hyperparameters
         >>> # You can update the classifier's hyperparameters during the fit call.
         >>> # Note the 'estimator__' prefix for wrapped sklearn models.
         >>> args = {'estimator__n_neighbors': 5}
@@ -266,7 +266,7 @@ class ICPWrapper:
         Example
         --------
         >>> # Automatic Retraining (Strategy Switching)
-        >>> # Change the underlying model dynamically
+        >>> # Change the underlying model
         >>> from sklearn.neighbors import KNeighborsClassifier
         >>> from sklearn.multioutput import ClassifierChain
         >>>
